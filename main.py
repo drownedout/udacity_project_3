@@ -6,14 +6,6 @@ cursor = db.cursor()
 
 f = open('output.txt', 'w')
 
-"""
-To get the page count, I joined the two tables on the slug (which is a url
-in human readable format) and the article title - which were more or
-less the same. To reconcile the extra content in the slug url, I used
-substring patterns.
-(https://www.postgresql.org/docs/9.3/static/functions-matching.html)
-"""
-
 f.write("What are the most popular three articles of all time?" + "\n" * 2)
 
 cursor.execute("SELECT articles.title, "
@@ -30,11 +22,6 @@ for row in cursor:
 
 f.write("\n" * 2)
 
-"""
-	I followed a similar method with the first query but joined
-  the articles table with the authors table on author id.
-"""
-
 f.write("Who are the most popular article authors of all time?" + "\n" * 2)
 
 cursor.execute("SELECT authors.name, "
@@ -48,14 +35,6 @@ for row in cursor:
     f.write(str(row[0]) + " - " + str(row[1]) + " views" + '\n')
 
 f.write("\n" * 2)
-
-"""
-	To aggregate all the times that the response was 404, I used the
-  filter expression and divided it over total responses.
-  Intially, I was using a conditional but that didn't work - so
-  I refered to the documentation and used FILTER instead
-  (https://www.postgresql.org/docs/9.4/static/sql-expressions.html).
-"""
 
 f.write("On which days did more than 1% of "
         "requests lead to errors?" + ("\n" * 2))

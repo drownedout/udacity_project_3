@@ -23,3 +23,13 @@ Please note the sql file, ```newsdata.sql```, was too large to include.
 After this has been completed, in your terminal while inside your working directory, run ```python3 main.py```
 
 Once you have done this a text file, **'output.txt'**, will have generated with the appropriate data.
+
+### Process
+##### These were originally included in main.py but were rejected by the auto-linter.
+
+Query 1: To get the page count, I joined the two tables on the slug (which is a url in human readable format) and the article title - which were more or less the same. To reconcile the extra content in the slug url, I used
+substring patterns. (https://www.postgresql.org/docs/9.3/static/functions-matching.html)
+
+Query 2: I followed a similar method with the first query but joined the articles table with the authors table on author id.
+
+Query 3: To aggregate all the times that the response was 404, I used the filter expression and divided it over total responses. Initially, I was using a conditional but that didn't work - so I referred to the documentation and used FILTER instead (https://www.postgresql.org/docs/9.4/static/sql-expressions.html).
