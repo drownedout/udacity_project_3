@@ -18,7 +18,7 @@ You will then need to create the database 'news' and run the sql file:
 
 ```psql -d news -f newsdata.sql```
 
-Please note the sql file, ```newsdata.sql```, was too large to include.
+The sql file, ```newsdata.sql```, can be downloaded [here](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip)
 
 After this has been completed, in your terminal while inside your working directory, run ```python3 main.py```
 
